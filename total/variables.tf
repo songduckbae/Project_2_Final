@@ -12,14 +12,14 @@ variable "vpc_name" {
   default     = "eks-vpc"
 }
 
-# 사용할 가용 영역 리스트트
+# 사용할 가용 영역 리스트
 variable "azs" {
   description = "List of availability zones"
   type        = list(string)
   default     = ["ap-northeast-2a", "ap-northeast-2b", "ap-northeast-2c"]
 }
 
-# 퍼블릿 서브넷에 할당할 CIDR 리스트
+# 퍼블릭 서브넷에 할당할 CIDR 리스트
 variable "public_subnet_cidrs" {
   description = "List of CIDRs for public subnets"
   type        = list(string)
@@ -33,6 +33,7 @@ variable "private_subnet_cidrs" {
   default     = ["10.10.20.0/24", "10.10.21.0/24", "10.10.22.0/24"]
 }
 
+# EKS 클러스터 이름
 variable "eks_cluster_name" {
   description = "EKS 클러스터 이름"
   type        = string

@@ -26,7 +26,7 @@ data "aws_subnets" "public" {
 
 # 기존 NAT용 EIP 참조 (Public IP는 AWS 콘솔에서 확인)
 data "aws_eip" "nat_eip" {
-  public_ip = "xxx.xxx.xxx.xxx" # 실제 EIP의 Public IP로 변경!
+  public_ip = "3.38.39.66" # 실제 EIP의 Public IP로 변경!/ 생성된 NAT IP넣기기
 }
 
 # 기존 보안그룹(Web)
