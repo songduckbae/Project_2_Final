@@ -39,3 +39,19 @@ variable "eks_cluster_name" {
   type        = string
   default     = "msa-eks"
 }
+
+variable "region" {
+  description = "AWS region"
+  default     = "ap-northeast-2"
+}
+variable "eks_cluster_endpoint" {
+  description = "EKS 클러스터 API 서버 endpoint"
+  type        = string
+  default     = "https://dummy"
+}
+
+variable "eks_cluster_ca" {
+  description = "EKS 클러스터 인증서 (base64 encoded)"
+  type        = string
+  default     = "ZHVtbXk="  # base64로 'dummy'
+}

@@ -26,7 +26,7 @@ data "aws_subnets" "public" {
 
 # 기존 NAT용 EIP 참조 (Public IP는 AWS 콘솔에서 확인)
 data "aws_eip" "nat_eip" {
-  public_ip = "3.38.39.66" # 실제 EIP의 Public IP로 변경!/ 생성된 NAT IP넣기기
+  public_ip = "52.78.101.114" # 실제 EIP의 Public IP로 변경!/ 생성된 NAT IP넣기기
 }
 
 # 기존 보안그룹(Web)
@@ -71,10 +71,18 @@ module "eks" {
   }
 }
 
-output "eks_cluster_name" {
-  value = module.eks.cluster_name
+resource "null_resource" "wait_for_cluster" {
+  provisioner "local-exec" {
+    command = "aws eks wait cluster-active --name ${module.eks.cluster_name} --region ${var.region}"
+  }
+  depends_on = [module.eks]
 }
 
-output "eks_endpoint" {
-  value = module.eks.cluster_endpoint
-}
+
+# output "eks_cluster_name" {
+#   value = module.eks.cluster_name
+# }
+
+# output "eks_endpoint" {
+#   value = module.eks.cluster_endpoint
+# }

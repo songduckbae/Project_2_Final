@@ -24,11 +24,11 @@ resource "aws_apigatewayv2_integration" "service_integration" {
   payload_format_version = "1.0"
 }
 
-# 서비스 개수만큼 라우팅 생성 (/center, /notice, /reg 등)
+# 서비스 개수만큼 라우팅 생성 (/center, /notice, /reg)
 resource "aws_apigatewayv2_route" "service_routes" {
   count     = length(var.service_names)
   api_id    = aws_apigatewayv2_api.msa_http_api.id
-  route_key = "ANY /${var.service_names[count.index]}"
+  route_key = "ANY /${var.service_names[count.index]}/{any+}"
   target    = "integrations/${aws_apigatewayv2_integration.service_integration[count.index].id}"
 }
 
@@ -38,3 +38,4 @@ resource "aws_apigatewayv2_stage" "default" {
   name        = "$default"
   auto_deploy = true
 }
+

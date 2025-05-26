@@ -86,7 +86,7 @@ resource "kubernetes_config_map" "aws_auth" {
   data = {
     mapRoles = yamlencode([
       {
-        rolearn  = "arn:aws:sts::886723286293:assumed-role/AWSReservedSSO_AdministratorAccess_be811d95ad9f0f4a/your-session",
+        rolearn  = "arn:aws:sts::387721658341:assumed-role/AWSReservedSSO_AdministratorAccess_17352c89fdf1ffae/",
         username = "admin",
         groups   = ["system:masters"]
       },
