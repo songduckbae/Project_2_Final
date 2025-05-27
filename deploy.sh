@@ -68,6 +68,8 @@ AWS_PROFILE="sso-admin"
 #  aws sso login --profile $AWS_PROFILE
 #}
 
+terraform init
+
 # 1단계: VPC + EKS만 생성
 echo "[1/7] VPC + EKS 클러스터 생성 중..."
 terraform apply -target=module.vpc -auto-approve
