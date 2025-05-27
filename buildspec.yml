@@ -1,0 +1,25 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+    commands:
+      - apt-get update && apt-get install -y unzip
+      - curl -o terraform.zip https://releases.hashicorp.com/terraform/1.6.6/terraform_1.6.6_linux_amd64.zip
+      - unzip terraform.zip -d /usr/local/bin
+      - terraform version
+
+  pre_build:
+    commands:
+      - echo "Preparing to run deploy script"
+
+  build:
+    commands:
+      - chmod +x ./deploy.sh
+      - ./deploy.sh
+
+artifacts:
+  files:
+    - '**/*'
+
