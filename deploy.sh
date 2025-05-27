@@ -62,11 +62,11 @@ set -e
 AWS_REGION="ap-northeast-2"
 AWS_PROFILE="sso-admin"
 
-echo "[0/7] SSO 세션 유효성 확인"
-aws sts get-caller-identity --profile $AWS_PROFILE > /dev/null 2>&1 || {
-  echo "SSO 세션 만료됨. aws sso login --profile $AWS_PROFILE 실행 필요"
-  aws sso login --profile $AWS_PROFILE
-}
+#echo "[0/7] SSO 세션 유효성 확인"
+#aws sts get-caller-identity --profile $AWS_PROFILE > /dev/null 2>&1 || {
+#  echo "SSO 세션 만료됨. aws sso login --profile $AWS_PROFILE 실행 필요"
+#  aws sso login --profile $AWS_PROFILE
+#}
 
 # 1단계: VPC + EKS만 생성
 echo "[1/7] VPC + EKS 클러스터 생성 중..."
