@@ -36,23 +36,24 @@ variable "private_subnet_cidrs" {
 variable "service_names" {
   description = "List of autoscaling group name"
   type        = list(string)
-  default     = ["center", "notice", "reg"]
+  default = ["center", "notice", "reg"]  # 현재 3개 서비스
 }
+
 
 variable "key_name" {
   description = "SSH key name"
   type        = string
-  default = "mykey-h"
+  default = "mykey"
 }
 
 #
 variable "codeconnection_arn" {
   description   = "code connection arn"
   type          = string
-  default       = "arn:aws:codeconnections:ap-northeast-2:387721658341:connection/65722506-54ae-4787-95f2-5bd1bd1fab55"
+  default       = "arn:aws:codeconnections:ap-northeast-2:886723286293:connection/3d47789b-36b6-46b1-8583-fcdda2e43687"
 }
 
 variable "s3_cicd" {
   type = string
-  default = "cicd-20250523"
+  default = "cicd-base"
 }

@@ -17,9 +17,11 @@ output "private_lb_sg_id" {
 output "web_sg_id" {
   value = aws_security_group.web_sg.id
 }
-# output "db_sg_id" {
-#   value = aws_security_group.db_sg.id
-# }
+
 output "bastion_sg_id" {
   value = aws_security_group.bastion_sg.id
+}
+output "alb_listener_arn" {
+  value = aws_lb_listener.front_end[0].arn
+  description = "ALB Listener ARN for API Gateway integration"
 }
